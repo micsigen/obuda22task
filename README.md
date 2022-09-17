@@ -1,6 +1,6 @@
 # Fibonacci backend service with Spring
 
-This guide walks you through the process of creating a "`Fibonacci`" application with Spring.
+This guide walks you through the process of creating a *Fibonacci* application with Spring.
 
 # What You Will Build
 
@@ -10,26 +10,29 @@ It will respond a static page that body will contain a n. fibonacci number.
 
 # What You Need
 
-Java version: 17
-Visual Code: 
+- Create a GitHub account if you do not have yet: https://github.com/signup
+- Java RE Version 17: https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html
+- Gradle Version: https://gradle.org/releases/
+- Visual Studio Code: https://code.visualstudio.com/download
 
 # Steps
-## Starting with Spring Initializr
 
-You can use this 
+Next steps help to build the *Fibonacci* application.
+
+## Create a application trunk with Spring Initializr
 
 To manually initialize the project:
 
-. Navigate to https://start.spring.io.
+- Navigate to https://start.spring.io.
 This service pulls in all the dependencies you need for an application and does most of the setup for you.
-. Choose Gradle and the language you want to use. This guide assumes that you chose Java.
-. Click *Dependencies* and select *Spring Web*.
-. Click *Generate*.
-. Download the resulting ZIP file, which is an archive of a web application that is configured with your choices.
+- Choose Gradle and the language you want to use. This guide assumes that you chose Java.
+- Click *Dependencies* and select *Spring Reactive Web*.
+- Click *Generate*.
+- Download the resulting ZIP file, which is an archive of a web application that is configured with your choices.
 
 NOTE: If your IDE has the Spring Initializr integration, you can complete this process from your IDE.
 
-NOTE: You can also fork the project from Github and open it in your IDE or other editor.
+
 
 ## Create a Controller
 
