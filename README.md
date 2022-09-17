@@ -1,12 +1,29 @@
 # Fibonacci backend service with Spring
 
-This guide walks you through the process of creating a *Fibonacci* application with Spring.
+This guide walks you through the process of creating a *Fibonacci* number application with Spring.
 
 # What You Will Build
 
 You will build an backend application that will accept HTTP GET requests at: `http://localhost:8080/fibonacci?n=5`.
 
-It will respond a static page that body will contain a n. fibonacci number.
+It will respond a static page that body will contain a *n.* fibonacci number.
+
+The Fibonacci number are represented with the next expression:
+
+```
+f(n) = f(n - 1) + f(n - 2)
+```
+
+Especially:
+```
+f(1) = 0
+f(2) = 1
+f(3) = 1
+f(4) = 2
+f(5) = 3
+f(6) = 5
+...
+```
 
 # What You Need
 
@@ -17,7 +34,7 @@ It will respond a static page that body will contain a n. fibonacci number.
 
 # Steps
 
-Next steps help to build the *Fibonacci* application.
+Next steps help to build an contribute the *Fibonacci* application.
 
 ## Create a application trunk with Spring Initializr
 
@@ -32,9 +49,17 @@ This service pulls in all the dependencies you need for an application and does 
 
 NOTE: If your IDE has the Spring Initializr integration, you can complete this process from your IDE.
 
+![Start Spring](src/spring.start.png)
 
+## Create a new project on GitHub
 
-## Create a Controller
+To complete the task needed to create and upload the running application into GitHub. Use the next template to create the project.
+
+![Create a project](src/create.project.png)
+
+## Develop the Fibonacci application
+
+### Create a Controller layer
 
 In Spring's approach to building web sites, HTTP requests are handled by a controller. You
 can easily identify the controller by the {Controller}[`@Controller`] annotation. In the
@@ -58,8 +83,19 @@ accessible to the view template.
 
 ## Run the Application
 
+After you complete the task you can run the application with the next *Gradle* command.
+
+
 
 ## Test the Application
+
+### Unit tests
+
+### Integration tests
+
+
+
+### Manual test
 
 Now that the web site is running, visit `http://localhost:8080/fibonacci?n=10`, where you should
 see "54"
