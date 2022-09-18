@@ -6,7 +6,7 @@ This guide walks you through the process of creating a *Fibonacci* number applic
 
 You will build an backend application that will accept HTTP GET requests at: `http://localhost:8080/fibonacci?n=5`.
 
-It will respond a static page that body will contain a *n.* fibonacci number.
+It will respond a static page that body will contain a *n.* fibonacci number. If the *n* is greater than *46* then return *BAD REQUEST* (500) response code.
 
 The Fibonacci number are represented with the next expression:
 
@@ -53,7 +53,7 @@ NOTE: If your IDE has the Spring Initializr integration, you can complete this p
 
 ## Create a new project on GitHub
 
-To complete the task needed to create and upload the running application into GitHub. Use the next template to create the project.
+To complete the task needed to create and upload the running trunk application into GitHub. Use the next template to create the project.
 
 ![Create a project](src/create.project.png)
 
@@ -61,38 +61,74 @@ To complete the task needed to create and upload the running application into Gi
 
 The layers are shown on the next diagram.
 
-![Layers](www.plantuml.com/plantuml/png/PL51Jp8n4BttLxmioHSsNwhHen4b63NUzKICAMLO6ifqRRiIGlZlpi82oTf3--RrpRpfT9ooYRbPUnN9PiEL9nGlRXROMEkGAUK2WytI2Lg75M6d573HJYSnR195tF-R7T739qn25xJYwSVRWMeS1bNmSw5gOrUc4gV5oKcRkXOZxwfbdlcczS5X3KiKhy_lk3vB7tcquttHblnkA6w_YETrS9mnM4jHpgPBdJu5pZ5uJn7UR2aUsh1dyYIRDCanfGHf-CTP4jaPTvgUaTP_orm8kUwbSyY4sBxj3eiXbnYr1pHkIlplu6qfuhrIECqEUXusV2Lp4rBsOwo7lMRKNeq5onV-0W00)
+![Layers](https://www.plantuml.com/plantuml/png/PL51Jp8n4BttLxmioHSsNwhHen4b63NUzKICAMLO6ifqRRiIGlZlpi82oTf3--RrpRpfT9ooYRbPUnN9PiEL9nGlRXROMEkGAUK2WytI2Lg75M6d573HJYSnR195tF-R7T739qn25xJYwSVRWMeS1bNmSw5gOrUc4gV5oKcRkXOZxwfbdlcczS5X3KiKhy_lk3vB7tcquttHblnkA6w_YETrS9mnM4jHpgPBdJu5pZ5uJn7UR2aUsh1dyYIRDCanfGHf-CTP4jaPTvgUaTP_orm8kUwbSyY4sBxj3eiXbnYr1pHkIlplu6qfuhrIECqEUXusV2Lp4rBsOwo7lMRKNeq5onV-0W00)
 
 ### Create a Controller layer
 
 In Spring's approach to building web sites, HTTP requests are handled by a controller. You
-can easily identify the controller by the @Controller annotation. 
+can easily identify the controller by the `@Controller` annotation. 
 
 This controller is concise and simple, but there is plenty going on. We break it down step
 by step.
 
-The `@GetMapping` annotation ensures that HTTP GET requests to `/fibonacci` are mapped to
+The `@GetMapping` annotation ensures that HTTP GET requests to */fibonacci* are mapped to
 the `fibonacci()` method.
 
-{RequestParam}[`@RequestParam`] binds the value of the query string parameter `n` into
-the `name` parameter of the `greeting()` method. This query string parameter is not
-`required`. If it is absent in the request, the `defaultValue` of `World` is used. The
-value of the `name` parameter is added to a {Model}[`Model`] object, ultimately making it
-accessible to the view template.
+The `@RequestParam` binds the value of the query string parameter `n` into
+the `n` parameter of the `fibonacci()` method. This query string parameter is 
+`required`.
+
+### Create Service Layer
+
+In Spring's approach to build business tier is used with `@Component` or `@Service` annotations. In business funtion should be implement the above mentioned Fibonacci number service, that return the n. Fibonacci number.
 
 ## Run the Application
 
 After you complete the task you can run the application with the next *Gradle* command.
 
-
+```
+./gradlew.bat bootRun
+```
 
 ## Test the Application
 
+Following the guideline test the application with two aspects
+- With unit tests let us test the service layer. Test the normal cases: `f(1), f(2), ...` and edge cases: `f(-1)`.
+- With integration tests let us test controller layer with connected business tier. The the edge case too: `f(47)`.
+
 ### Unit tests
+
+Example to test application with *JUnit*:
+
+```
+@Test
+void shouldReturn0WhenCall1() {
+    // given
+
+    // when
+    Integer result = underTest.fibonacci(1);
+    // then
+    Assertions.assertEquals(0, result);
+}
+```
 
 ### Integration tests
 
+Example to test controller layer with *JUnit*
 
+```
+@Test
+void callFibonacciEndpoint() {
+    // given
+
+    // when
+    ResponseEntity<String> entity = restTemplate.getForEntity("http://localhost:8080/fibonacci?n=5", String.class);
+
+    // then
+    Assertions.assertEquals(HttpStatus.OK, entity.getStatusCode());
+    Assertions.assertEquals("3", entity.getBody());
+}
+```
 
 ### Manual test
 
