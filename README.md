@@ -59,15 +59,14 @@ To complete the task needed to create and upload the running application into Gi
 
 ## Develop the Fibonacci application
 
+The layers are shown on the next diagram.
+
+![Layers](www.plantuml.com/plantuml/png/PL51Jp8n4BttLxmioHSsNwhHen4b63NUzKICAMLO6ifqRRiIGlZlpi82oTf3--RrpRpfT9ooYRbPUnN9PiEL9nGlRXROMEkGAUK2WytI2Lg75M6d573HJYSnR195tF-R7T739qn25xJYwSVRWMeS1bNmSw5gOrUc4gV5oKcRkXOZxwfbdlcczS5X3KiKhy_lk3vB7tcquttHblnkA6w_YETrS9mnM4jHpgPBdJu5pZ5uJn7UR2aUsh1dyYIRDCanfGHf-CTP4jaPTvgUaTP_orm8kUwbSyY4sBxj3eiXbnYr1pHkIlplu6qfuhrIECqEUXusV2Lp4rBsOwo7lMRKNeq5onV-0W00)
+
 ### Create a Controller layer
 
 In Spring's approach to building web sites, HTTP requests are handled by a controller. You
-can easily identify the controller by the {Controller}[`@Controller`] annotation. In the
-following example, `GreetingController` handles GET requests for `/greeting` by returning
-the name of a {View}[`View`] (in this case, `greeting`). A `View` is responsible for
-rendering the HTML content. The following listing (from
-`src/main/java/com/example/servingwebcontent/GreetingController.java`) shows the
-controller:
+can easily identify the controller by the @Controller annotation. 
 
 This controller is concise and simple, but there is plenty going on. We break it down step
 by step.
