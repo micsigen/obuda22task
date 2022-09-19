@@ -66,7 +66,20 @@ The layers are shown on the next diagram.
 ### Create a Controller layer
 
 In Spring's approach to building web sites, HTTP requests are handled by a controller. You
-can easily identify the controller by the `@Controller` annotation. 
+can easily identify the controller by the `@RestController` annotation. 
+
+```
+@RestController
+@RequestMapping("/")
+public class FibonacciController {
+
+...
+
+@GetMapping(value = "fibonacci")
+    public Integer getFibonacci(@RequestParam Integer n) {
+    ...
+    }
+```
 
 This controller is concise and simple, but there is plenty going on. We break it down step
 by step.
