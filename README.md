@@ -36,28 +36,14 @@ f(6) = 5
 
 Next steps help to build an contribute the *Fibonacci* application.
 
-## Create a application trunk with Spring Initializr
+## 1. Fork the application
 
-To manually initialize the project:
+1. Log in onto GitGub account to fork this application.
+2. Click on fork button top left on this page.
 
-- Navigate to https://start.spring.io.
-This service pulls in all the dependencies you need for an application and does most of the setup for you.
-- Choose Gradle and the language you want to use. This guide assumes that you chose Java.
-- Click *Dependencies* and select *Spring Reactive Web*.
-- Click *Generate*.
-- Download the resulting ZIP file, which is an archive of a web application that is configured with your choices.
+![Click on fork button](src/click.fork.png)
 
-NOTE: If your IDE has the Spring Initializr integration, you can complete this process from your IDE.
-
-![Start Spring](src/spring.start.png)
-
-## Create a new project on GitHub
-
-To complete the task needed to create and upload the running trunk application into GitHub. Use the next template to create the project.
-
-![Create a project](src/create.project.png)
-
-## Develop the Fibonacci application
+## 2. Develop Fibonacci application
 
 The layers are shown on the next diagram.
 
